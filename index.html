@@ -9,22 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chosen Palette: Warm Neutrals & Subtle Gold -->
-    <!-- Application Structure Plan: A single-page, top-down narrative structure was chosen for usability. It starts with a captivating hero section (Mission/Vision) to immediately engage the user. This is followed by an interactive timeline for goals, allowing users to explore short, medium, and long-term plans at their own pace, which is more engaging than a static table. Key activities are presented in a card-based grid for quick scanning. A dynamic progress chart for membership adds a sense of momentum. The flow concludes with a clear call-to-action section. This structure guides the user logically from the "why" (mission) to the "how" (goals/activities) and finally to the "what now" (join us), creating a compelling story. -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: Goals (Short, Medium, Long Term) -> Goal: Organize & Compare -> Viz/Presentation: Interactive Tabbed Cards/Timeline -> Interaction: User clicks tabs to reveal goals for each phase. -> Justification: More engaging and less overwhelming than a large table. Allows users to focus on one timeframe at a time. -> Library/Method: HTML/CSS/JS.
-        - Report Info: Member Goal (30 members) -> Goal: Inform & Motivate -> Viz/Presentation: Donut Chart -> Interaction: Static chart visually represents progress toward the goal. -> Justification: A visual chart is more impactful for showing progress than just text. -> Library/Method: Chart.js.
-        - Report Info: Core Activities -> Goal: Organize & Inform -> Viz/Presentation: Card Grid -> Interaction: Hover effects on cards to provide feedback. -> Justification: Cards allow for easy visual separation and quick comprehension of each activity. -> Library/Method: HTML/Tailwind CSS.
-        - Report Info: Call to Action -> Goal: Engage & Convert -> Viz/Presentation: Styled Buttons/Contact Section -> Interaction: Clickable links. -> Justification: Clear, actionable steps for users who are convinced by the plan. -> Library/Method: HTML/CSS.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F8F7F1; /* Warm neutral background */
+            background-color: #F8F7F1;
         }
         .text-brand-dark { color: #4A4A4A; }
-        .text-brand-accent { color: #C0A062; } /* Subtle Gold */
+        .text-brand-accent { color: #C0A062; }
         .bg-brand-light { background-color: #FFFFFF; }
         .bg-brand-accent { background-color: #C0A062; }
         .border-brand-accent { border-color: #C0A062; }
@@ -63,31 +54,26 @@
     <header class="bg-brand-light shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold">
-                <span class="text-brand-dark"> <img src="logo_m.jpg" alt="AGX" >	 </span>
+                <span class="text-brand-dark"> <img src="logo_m.jpg" alt="AGX"> </span>
             </div>
             <ul class="hidden md:flex space-x-8">
                 <li><a href="#missao" class="hover:text-brand-accent transition-colors">Missão</a></li>
                 <li><a href="#plano" class="hover:text-brand-accent transition-colors">Nosso Plano</a></li>
                 <li><a href="#atividades" class="hover:text-brand-accent transition-colors">Atividades</a></li>
+                <li><a href="#transparencia" class="hover:text-brand-accent transition-colors">Transparência</a></li>
                 <li><a href="#junte-se" class="hover:text-brand-accent transition-colors">Junte-se a Nós</a></li>
             </ul>
-            <div class="md:hidden">
-                <!-- Mobile menu can be added here -->
-            </div>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main>
+
         <!-- Hero Section -->
         <section id="hero" class="py-20 md:py-32 text-center bg-brand-light">
-			
             <div class="container mx-auto px-6">
-			
-				<img src="logo.jpg" alt="AGX" class="mx-auto mb-6 w-800 h-300">	
-				
+                <img src="logo.jpg" alt="AGX" class="mx-auto mb-6 w-800 h-300">
                 <h1 class="text-4xl md:text-6xl font-bold text-brand-dark leading-tight">
-				 
                     Associação Guanambiense de Xadrez
                 </h1>
                 <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
@@ -109,31 +95,17 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="text-lg">
                         <h3 class="text-2xl font-bold text-brand-accent mb-4">Missão e Visão</h3>
-                        <p class="mb-4">Nossa missão é **fomentar a prática e o ensino do xadrez**, utilizando o esporte como ferramenta para o desenvolvimento intelectual, a inclusão social e a integração da nossa comunidade.</p>
-                        <p class="mb-4">Nossa visão é ser um **centro de referência para o xadrez na região**, revelando talentos locais e sendo reconhecida como um polo de esporte, cultura e pensamento estratégico.</p>
-                        <p>Acreditamos que o xadrez melhora a **concentração, a tomada de decisão e o raciocínio lógico**. A associação nasce para preencher uma lacuna, oferecendo uma alternativa de lazer saudável e um ponto de encontro para a comunidade.</p>
+                        <p class="mb-4">Nossa missão é <strong>fomentar a prática e o ensino do xadrez</strong>, utilizando o esporte como ferramenta para o desenvolvimento intelectual, a inclusão social e a integração da nossa comunidade.</p>
+                        <p class="mb-4">Nossa visão é ser um <strong>centro de referência para o xadrez na região</strong>, revelando talentos locais e sendo reconhecida como um polo de esporte, cultura e pensamento estratégico.</p>
+                        <p>Acreditamos que o xadrez melhora a <strong>concentração, a tomada de decisão e o raciocínio lógico</strong>. A associação nasce para preencher uma lacuna, oferecendo uma alternativa de lazer saudável e um ponto de encontro para a comunidade.</p>
                     </div>
-
-<!--		    
                     <div class="flex justify-center items-center">
-                      <div class="w-full max-w-sm p-4">
-                             <div class="chart-container mx-auto" style="position: relative; height:300px; width:300px">
-                                <canvas id="membersChart"></canvas>
+                        <div class="w-full p-4">
+                            <div class="flex justify-center">
+                                <img src="img01.png" alt="Imagem" style="width:500px; height:331px; object-fit:contain;">
                             </div>
-                             <p class="text-center mt-4 font-semibold">Meta: 20 Membros Fundadores</p>
                         </div>
                     </div>
--->
-
-<div class="flex justify-center items-center">
-  <div class="w-full  p-4">
-    <div class="flex justify-center">
-      <img src="img01.png" alt="Imagem" style="width:500px; height:331px; object-fit:contain;">
-    </div>
-  </div>
-</div>
-
-		    
                 </div>
             </div>
         </section>
@@ -158,25 +130,25 @@
                     <div id="curto-prazo" class="timeline-content active">
                         <h3 class="text-center text-2xl font-bold mb-6 text-brand-accent">(Primeiros 6 meses)</h3>
                         <ul class="space-y-4">
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">👍 <span class="ml-4 font-semibold">Estruturação Legal:</span> Registrar a Associação e obter o CNPJ.</li>
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">👥 <span class="ml-4 font-semibold">Membros Fundadores:</span> Atingir a meta de 20 membros iniciais.</li>
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🎉 <span class="ml-4 font-semibold">Evento Inaugural:</span> Realizar o 1º Torneio Aberto de Xadrez da Cidade.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">👍 <span class="ml-4 font-semibold">Estruturação Legal:</span>&nbsp; Registrar a Associação e obter o CNPJ.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">👥 <span class="ml-4 font-semibold">Membros Fundadores:</span>&nbsp; Atingir a meta de 20 membros iniciais.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🎉 <span class="ml-4 font-semibold">Evento Inaugural:</span>&nbsp; Realizar o 1º Torneio Aberto de Xadrez da Cidade.</li>
                         </ul>
                     </div>
                     <div id="medio-prazo" class="timeline-content">
                         <h3 class="text-center text-2xl font-bold mb-6 text-brand-accent">(1 a 2 anos)</h3>
                         <ul class="space-y-4">
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🏆 <span class="ml-4 font-semibold">Ranking Municipal:</span> Criar e manter um ranking oficial de jogadores.</li>
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">📚 <span class="ml-4 font-semibold">Aulas Regulares:</span> Oferecer oficinas contínuas para mais de 50 alunos.</li>
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🤝 <span class="ml-4 font-semibold">Parcerias Escolares:</span> Firmar convênio com pelo menos 3 escolas locais.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🏆 <span class="ml-4 font-semibold">Ranking Municipal:</span>&nbsp; Criar e manter um ranking oficial de jogadores.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">📚 <span class="ml-4 font-semibold">Aulas Regulares:</span>&nbsp; Oferecer oficinas contínuas para mais de 50 alunos.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🤝 <span class="ml-4 font-semibold">Parcerias Escolares:</span>&nbsp; Firmar convênio com pelo menos 3 escolas locais.</li>
                         </ul>
                     </div>
                     <div id="longo-prazo" class="timeline-content">
                         <h3 class="text-center text-2xl font-bold mb-6 text-brand-accent">(3 a 5 anos)</h3>
                         <ul class="space-y-4">
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">📍 <span class="ml-4 font-semibold">Sede Própria:</span> Conquistar um espaço físico permanente, próprio ou cedido.</li>
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🚌 <span class="ml-4 font-semibold">Competições Estaduais:</span> Levar uma equipe formada para representar Guanambi.</li>
-                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">♟️ <span class="ml-4 font-semibold">Formação de Talentos:</span> Formar o primeiro Mestre de Xadrez da cidade.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">📍 <span class="ml-4 font-semibold">Sede Própria:</span>&nbsp; Conquistar um espaço físico permanente, próprio ou cedido.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">🚌 <span class="ml-4 font-semibold">Competições Estaduais:</span>&nbsp; Levar uma equipe formada para representar Guanambi.</li>
+                            <li class="p-6 bg-white rounded-lg shadow-md flex items-center">♟️ <span class="ml-4 font-semibold">Formação de Talentos:</span>&nbsp; Formar o primeiro Mestre de Xadrez da cidade.</li>
                         </ul>
                     </div>
                 </div>
@@ -211,18 +183,57 @@
             </div>
         </section>
 
+        <!-- Transparência Section -->
+        <section id="transparencia" class="py-16 md:py-24 bg-brand-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">Transparência</h2>
+                    <p class="mt-2 text-gray-600">Documentos oficiais e editais da associação.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <a href="https://raw.githubusercontent.com/crixtiano/agx/main/Download/2026-05-21-00-OF.pdf" target="_blank" class="flex items-center justify-between p-5 bg-white rounded-lg shadow-md card-hover group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl">📄</span>
+                            <div>
+                                <p class="font-bold text-brand-dark group-hover:text-brand-accent transition-colors">Ofício à Câmara dos Vereadores de Guanambi/BA</p>
+                                <p class="text-sm text-gray-500">Edital • 2025</p>
+                            </div>
+                        </div>
+                        <span class="text-brand-accent font-bold text-sm shrink-0 ml-4">↓ Acessar</span>
+                    </a>		  
+                    <a href="https://raw.githubusercontent.com/crixtiano/agx/main/Download/2026-05-21-00-ED.pdf" target="_blank" class="flex items-center justify-between p-5 bg-white rounded-lg shadow-md card-hover group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl">📄</span>
+                            <div>
+                                <p class="font-bold text-brand-dark group-hover:text-brand-accent transition-colors">Edital de Convocação — Assembleia Geral de Fundação da AGX</p>
+                                <p class="text-sm text-gray-500">Edital • 2025</p>
+                            </div>
+                        </div>
+                        <span class="text-brand-accent font-bold text-sm shrink-0 ml-4">↓ Acessar</span>
+                    </a>
+                    <a href="https://raw.githubusercontent.com/crixtiano/agx/main/Download/2026-05-21-03-ES-P.pdf" class="flex items-center justify-between p-5 bg-white rounded-lg shadow-md card-hover group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl">📋</span>
+                            <div>
+                                <p class="font-bold text-brand-dark group-hover:text-brand-accent transition-colors">Proposta de Estatuto Social da AGX</p>
+                                <p class="text-sm text-gray-500">Documento • 2025</p>
+                            </div>
+                        </div>
+                        <span class="text-brand-accent font-bold text-sm shrink-0 ml-4">↓ Acessar</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Call to Action Section -->
-        <section id="junte-se" class="py-16 md:py-24 bg-brand-light">
+        <section id="junte-se" class="py-16 md:py-24">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold">Faça o Movimento Certo. Junte-se a Nós!</h2>
                 <p class="mt-4 text-lg max-w-3xl mx-auto">Este projeto só se torna realidade com a força da comunidade. Sua jogada faz toda a diferença.</p>
                 <div class="mt-10 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     <div class="border border-gray-200 p-6 rounded-lg">
                         <h3 class="text-xl font-bold text-brand-accent">Seja Membro Fundador</h3>
-                        <p class="mt-2">Ajude a compor a primeira diretoria e a dar vida ao nosso estatuto. <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-4ThWgHShXaxDCWhG4LuBptnZxKbcxX21WS1ZJxza42VYUQ/viewform?usp=sharing&ouid=100114677526843114612" class="mt-8 inline-block btn-primary font-bold py-3 px-8 rounded-lg shadow-lg">CLIQUE AQUI!</a> </p>
-						
-						
-						
+                        <p class="mt-2">Ajude a compor a primeira diretoria e a dar vida ao nosso estatuto. <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-4ThWgHShXaxDCWhG4LuBptnZxKbcxX21WS1ZJxza42VYUQ/viewform?usp=sharing&ouid=100114677526843114612" class="mt-8 inline-block btn-primary font-bold py-3 px-8 rounded-lg shadow-lg">CLIQUE AQUI!</a></p>
                     </div>
                     <div class="border border-gray-200 p-6 rounded-lg">
                         <h3 class="text-xl font-bold text-brand-accent">Seja Parceiro</h3>
@@ -234,11 +245,12 @@
                     </div>
                 </div>
                 <div class="mt-12">
-                     <p class="text-lg font-semibold">Vamos juntos colocar Guanambi no mapa do xadrez!</p>
-                     <p class="mt-4 text-xl font-bold">Contato: Cristiano Magalhães | (77) 9.9919-1238 | crixtiano@gmail.com </p>
+                    <p class="text-lg font-semibold">Vamos juntos colocar Guanambi no mapa do xadrez!</p>
+                    <p class="mt-4 text-xl font-bold">Contato: Cristiano Magalhães | (77) 9.9919-1238 | crixtiano@gmail.com</p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
@@ -255,57 +267,15 @@
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Deactivate all tabs and content
                     tabs.forEach(t => t.classList.remove('tab-active'));
                     contents.forEach(c => c.classList.remove('active'));
-
-                    // Activate clicked tab and corresponding content
                     tab.classList.add('tab-active');
                     const targetId = tab.getAttribute('data-target');
                     document.getElementById(targetId).classList.add('active');
                 });
-            });
-
-            // Chart.js for Members Goal
-            const currentMembers = 21; // You can update this value dynamically
-            const goalMembers = 20;
-            const remainingMembers = goalMembers - currentMembers;
-
-            const ctx = document.getElementById('membersChart').getContext('2d');
-            const membersChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Membros Atuais', 'Meta Restante'],
-                    datasets: [{
-                        data: [currentMembers, remainingMembers > 0 ? remainingMembers : 0],
-                        backgroundColor: [
-                            '#C0A062', // brand-accent
-                            '#E0E0E0'  // light-gray
-                        ],
-                        borderColor: [
-                            '#FFFFFF',
-                            '#FFFFFF'
-                        ],
-                        borderWidth: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '70%',
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            enabled: true
-                        }
-                    }
-                }
             });
         });
     </script>
 
 </body>
 </html>
-
