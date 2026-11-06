@@ -114,12 +114,25 @@ function currentPageUrl(string $lang, bool $absolute = false): string
     $query = $key === 'pre-cadastro' ? ['associar' => presignupVariant()] : [];
     $url   = pageUrl($key, '', $query, $lang);
 
-    if ($absolute) {
-        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-        $dir    = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
-        $url    = $scheme . '://' . htmlspecialchars(($_SERVER['HTTP_HOST'] ?? 'localhost') . $dir) . '/' . $url;
-    }
-    return $url;
+    return $absolute ? siteUrl($url) : $url;
+}
+
+/**
+ * siteUrl(): string
+ *
+ * Full address (https://host/dir/...) of a path relative to the site
+ * root. Used where relative links are not accepted: hreflang, canonical
+ * and the Open Graph image.
+ *
+ * @param string $path  Path relative to the site root, already safe for an attribute
+ *
+ * @return string  Absolute URL, already safe for an href attribute
+ */
+function siteUrl(string $path = ''): string
+{
+    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $dir    = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
+    return $scheme . '://' . htmlspecialchars(($_SERVER['HTTP_HOST'] ?? 'localhost') . $dir) . '/' . $path;
 }
 
 /**

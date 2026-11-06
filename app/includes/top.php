@@ -37,6 +37,20 @@ $menu = [
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= htmlspecialchars($title_completo) ?></title>
 <meta name="description" content="<?= htmlspecialchars(t('site.description')) ?>">
+<?php /* link preview (WhatsApp, Facebook, LinkedIn, X...); og:image must be absolute */ ?>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AGX — <?= htmlspecialchars(t('site.name')) ?>">
+<meta property="og:title" content="<?= htmlspecialchars($title_completo) ?>">
+<meta property="og:description" content="<?= htmlspecialchars(t('site.description')) ?>">
+<meta property="og:url" content="<?= currentPageUrl(getLang(), true) ?>">
+<meta property="og:image" content="<?= siteUrl('imgs/compartilhar.png') ?>">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="<?= htmlspecialchars(t('site.name')) ?>">
+<meta property="og:locale" content="<?= getLang() ?>">
+<meta property="og:locale:alternate" content="<?= getLang() === 'pt_BR' ? 'en_US' : 'pt_BR' ?>">
+<meta name="twitter:card" content="summary_large_image">
 <?php if ($nav_ativo !== ''): /* language versions of this page (not on 404) */ ?>
 <link rel="canonical" href="<?= currentPageUrl(getLang(), true) ?>">
 <link rel="alternate" hreflang="pt-BR" href="<?= currentPageUrl('pt_BR', true) ?>">

@@ -43,7 +43,7 @@ agx/
     │   ├── fonts/        # Outfit (woff2 variável, subsets latin e latin-ext) + OFL.txt
     │   └── js/main.js
     ├── paginas/          # páginas do meio
-    └── imgs/             # logos e prints do pré-cadastro (favicon: `app/favicon.ico` com 16/24/32/48 px para a aba, icone512x512.png para Google e telas grandes, apple-touch-icon.png 180 × 180 com fundo sólido para a tela inicial do iPhone)
+    └── imgs/             # logos e prints do pré-cadastro (favicon: `app/favicon.ico` com 16/24/32/48 px para a aba, icone512x512.png para Google e telas grandes, apple-touch-icon.png 180 × 180 com fundo sólido para a tela inicial do iPhone; compartilhar.png 1200 × 630 é a miniatura de compartilhamento, `og:image`)
 ```
 
 ## Architecture
@@ -99,6 +99,7 @@ Idioma padrão `pt_BR`; `en_US` também é suportado. O idioma vem da URL, não 
 
 - `pageUrl()` acrescenta `lang=en` sozinho quando a página está em inglês, então todo link interno mantém o idioma. O 4º parâmetro força um idioma: `pageUrl('agenda', '', [], 'en_US')`.
 - `currentPageUrl($lang, $absoluto)` (`index.php`) dá o endereço da página atual no idioma pedido. É usado pelos links **PT | EN** do menu e pelas tags `canonical` e `hreflang` (pt-BR, en, x-default = pt) do `<head>`, que não aparecem na página 404.
+- `siteUrl('caminho')` (`index.php`) dá o endereço absoluto de um caminho do site. As tags Open Graph (`og:*`, `twitter:card`) em `top.php` usam o título e `site.description` da página e a imagem `imgs/compartilhar.png`; WhatsApp e Facebook guardam a prévia em cache (atualizar pelo Sharing Debugger do Facebook).
 
 - Dicionários em `app/lib/lang/pt_BR.php` e `app/lib/lang/en_US.php`, retornando arrays de chaves em notação de ponto.
 - Usar `t('chave')` em todo texto de interface; placeholders no formato `:nome` (`t('footer.rights', ['year' => 2026])`).
