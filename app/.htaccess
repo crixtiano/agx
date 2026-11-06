@@ -1,0 +1,5 @@
+# .htaccess — AGX
+# Only takes effect when the server allows it (AllowOverride Options or All).
+
+# Never list folder contents (e.g. /imgs/, /includes/, /lib/)
+Options -Indexes
